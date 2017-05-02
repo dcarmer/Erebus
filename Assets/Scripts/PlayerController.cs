@@ -1,207 +1,314 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(AudioSource))]
-public class PlayerController : MonoBehaviour //TODO - ADD Mesh/Collider/AudioSync/AnimationSync, MouseLook, HeadBob, PushingForce, Lock Cursor
+[RequireComponent(typeof(CharacterController), typeof(AudioSource))]
+public class PlayerController : MonoBehaviour //TODO - ADD Mesh/Collider/AudioSync/AnimationSync, HeadBob, PushingForce, Lock Cursor
 {
-    //Input Axes
-    private string
-        Input_ToggleView = "tab",
-        Input_Run = "left shift",
-        Input_Jump = "Jump",
-        Input_LookX = "Mouse X",
-        Input_LookY = "Mouse Y",
-        Input_Vertical = "Vertical",
-        Input_Horizontal = "Horizontal";
-    private float
-        XSensitivity = 2f,
-        YSensitivity = 2f;
-    private bool
-        LockCursor = true,
-        isCursorLocked = false;
+    //Ease of Use
+    private const int INTERACTABLE_MASK = (1 << 10);
+    private const string TOGGLE_VIEW_BUTTON = "tab";
+    private const string RUN_BUTTON = "left shift";
+    private const string JUMP_BUTTON = "Jump";
+    private const string HORIZONTAL_VIEW_AXIS = "Mouse X";
+    private const string VERTICAL_VIEW_AXIS = "Mouse Y";
+    private const string VERTICAL_AXIS = "Vertical";
+    private const string HORIZONTAL_AXIS = "Horizontal";
+    private const string FIRE_BUTTON = "Fire1";
+    private Rect MINIMAP_BOUNDS = new Rect(.7f, .02f, .28f, .2f);
+    private Rect SCREEN_BOUNDS = new Rect(0, 0, 1, 1);
 
-    //GameObject Components
+    //THIS
     private AudioSource audioSource;
     private CharacterController characterController;
+    public bool AbsoluteMovementInput = true; //Aka: Mouse vs Controller
+    private Vector3 moveDir = Vector3.zero; //Needed for manual applying gravity
+    private bool wasGrounded = false; //Needed to detect landing
+    private bool wantsToJump = false; //Needed to catch input
+    private Interactable ActiveInteractible = null;
 
-    //Linked Resources
-        //Audio
+[Header("Linked Resources")]
+    public Camera FirstPerson, Overhead;
+    public Canvas HUD;
+    public Text InteractableContext;
+    public Transform Body;
+    private Transform Head;
+    public GameObject Projectile;
     public AudioClip JumpSound, LandSound;
     public AudioClip[] StepSounds;
-        //Cameras
-    public Camera FirstPerson, Overhead;
-        //Canvases
-    public Canvas HUD;
-
-    //Movement Variables
-    public float baseSpeed = 1;
-    private float currSpeed; //Tracks applied speed
-    private Vector3 moveDir = Vector3.zero; //Keeps track of Player Movement
-        //Running
-    public bool isRunning = false;
-    public float runSpeedMultiplier = 2; //Scale factor of regular speed
-    public float stamina = 5; //Max Sprint Length
-    private float beenRunning = 0; //Tracks Current Stamina
-        //Audio Sync
-    public float StrideInterval = 5; //Distance between footsteps
-    [Range(0f, 1f)] public float StrideLengthen = .5f; //Scale factor of Footsteps
-    private float StrideProgress = 0; //Tracks current distance between footsteps
-        //Jumping
+[Header("Character Stats")]
+    public float MAX_HEALTH = 6;
+    public float health = 6;
+    public float MAX_ARMOR = 6;
+    public float armor = 6;
+    public float MAX_STAMINA = 6;
+    private float _stamina;
+    public float stamina
+    {
+        get { return _stamina; }
+        set 
+        { 
+            if(value <= 0)
+            {
+                _stamina = 0;
+                isRunning = false;
+            }
+            else
+            {
+                _stamina = Mathf.Min(MAX_STAMINA, value);
+            }
+        }
+    }
+    public float WalkSpeed = 1;
+    public float RunSpeed = 2;
     public float JumpSpeed = 2;
-    private bool wasGrounded = false;
-
-    //Rendering Variables
-    private bool fpv = false;//First Person View Mode
-    private Rect miniMapBounds = new Rect(.7f, .02f, .28f, .2f);
-    private Rect screenBounds = new Rect(0,0,1,1);
-        //First Person
-    private bool clampVerticalRotation = true;
-    private float MinimumX = -90F; //Min Allowed X Rotation(Degrees) 
-    private float MaximumX = 90F; //Max Allowed X Rotation(Degrees)
+    public float InteractRadius = 2;
+[Header("Character State")]
+    private bool _FirstPersonView = false;
+    public bool FirstPersonView
+    {
+        get { return _FirstPersonView; }
+        set
+        {
+            _FirstPersonView = value;
+            if (value)
+            {
+                FirstPerson.rect = SCREEN_BOUNDS; FirstPerson.depth = -1;
+                HUD.worldCamera = FirstPerson;
+                Overhead.rect = MINIMAP_BOUNDS; Overhead.depth = 0;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Overhead.rect = SCREEN_BOUNDS; Overhead.depth = -1;
+                HUD.worldCamera = Overhead;
+                FirstPerson.rect = MINIMAP_BOUNDS; FirstPerson.depth = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                FirstPerson.transform.localRotation = Quaternion.identity;
+            }
+        }
+    }
+    public bool melee = true;
+    private bool _isRunning;
+    public bool isRunning
+    {
+        get { return _isRunning; }
+        set
+        {
+            if (value)
+            {
+                if (stamina > 0)
+                {
+                    _isRunning = true;
+                    CurrentSpeed = RunSpeed;
+                }
+            }
+            else
+            {
+                _isRunning = false;
+                CurrentSpeed = WalkSpeed;
+            }
+        }
+    }
+    private float CurrentSpeed = 0;
+    public bool drawPath = false;
+    public Vector3 dest;
+    
 
     void Start () 
     {
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
-        setMode(fpv);
-        currSpeed = baseSpeed;
-        MinimumX = Mathf.Tan(.5f*Mathf.Deg2Rad*MinimumX); //Optimizes
-        MaximumX = Mathf.Tan(.5f*Mathf.Deg2Rad*MaximumX); //Optimizes
-        CursorLock(LockCursor);
+        Head = FirstPerson.transform;
+        FirstPersonView = false;
+        CurrentSpeed = WalkSpeed;
     }
     void Update () //For Frame Dependent Calls
     {
-        //Handle Cursor Lock
-        if (Input.GetKeyUp(KeyCode.Escape)) { CursorLock(false); }
-        else if (Input.GetMouseButtonUp(0) && LockCursor) { CursorLock(true); }
-        //Mode Toggle
-        if (Input.GetKeyDown(Input_ToggleView)) { setMode(!fpv); }
+        if (!GameController.self.paused)
+        {
+            //Input Response
+            if (Input.GetButton(FIRE_BUTTON)) { attack(); } //Attacks
+            if (Input.GetKeyDown(TOGGLE_VIEW_BUTTON)) { FirstPersonView = !FirstPersonView; } //View Toggle
+            if (Input.GetKeyDown(RUN_BUTTON)) { isRunning = true; } //Run Start
+            if (Input.GetKeyUp(RUN_BUTTON)) { isRunning = false; } //Run End
+            if (Input.GetButtonDown(JUMP_BUTTON)) { wantsToJump = true; } //Jump If Possible
 
-        //Handle Running
-        if (Input.GetKeyDown(Input_Run)) { isRunning = true; currSpeed = baseSpeed * runSpeedMultiplier; }
-        if (Input.GetKeyUp(Input_Run) || beenRunning >= stamina) {isRunning = false; currSpeed = baseSpeed; }
-
-        //Handle Jumping
-        if (Input.GetButtonDown(Input_Jump) && characterController.isGrounded) //Jump Should Happen
-        {
-            moveDir.y += JumpSpeed; //Apply Y Movement
-            PlayJumpingAudio();
-        }
-        if (!wasGrounded && characterController.isGrounded)
-        {
-            moveDir.y = 0; //Nullify Y Movement
-            PlayLandingAudio();
-        }
-        wasGrounded = characterController.isGrounded; //Track Previous State
-    }
-    void FixedUpdate()
-    {
-        //Handle Running
-        if (isRunning) { beenRunning += Time.fixedDeltaTime; }
-        else if (beenRunning > 0) { beenRunning -= Time.fixedDeltaTime; }
-
-        //Handle Movement
-        Vector3 desiredMove;
-        if (fpv)//First Person Controls
-        {
-            //Look at Mouse
-            transform.localRotation *= Quaternion.Euler(0f, Input.GetAxis(Input_LookX) * XSensitivity, 0f);
-            FirstPerson.transform.localRotation *= Quaternion.Euler(-Input.GetAxis(Input_LookY) * YSensitivity, 0f, 0f);
-            FirstPerson.transform.localRotation = ClampRotationAroundXAxis(FirstPerson.transform.localRotation);
-
-            Vector2 input = new Vector2(Input.GetAxis(Input_Horizontal), Input.GetAxis(Input_Vertical)).normalized;
-            desiredMove = transform.forward*input.y + transform.right*input.x;
-        }
-        else //Top Down Controls
-        {
-            Vector2 input = new Vector2(Input.GetAxis(Input_Horizontal), Input.GetAxis(Input_Vertical)).normalized;
-            desiredMove = transform.forward * input.y + transform.right * input.x;
-        }
-        moveDir.x = desiredMove.x * currSpeed; //X Movement
-        moveDir.z = desiredMove.z * currSpeed; //Z Movement
-        if (!characterController.isGrounded)
-        {
-            moveDir += 0.5f*Physics.gravity * Time.fixedDeltaTime; //Y Movement
-        }
-        characterController.Move(moveDir * Time.fixedDeltaTime);
-
-        //TODO FIX BELOW - AUDIO STEP SYNC
-        //Update StrideProgress
-        if (characterController.velocity.sqrMagnitude > 0 && Input.GetAxis(Input_Vertical) + Input.GetAxis(Input_Horizontal) !=0)//Stuff??
-        //if (moveDir.sqrMagnitude > 0) //Trying to move on own power(aka not standing still while being pushed or falling)
-        {
-            float StrideGait = (isRunning ? StrideLengthen : 1);
-            StrideProgress += (characterController.velocity.magnitude+baseSpeed*StrideGait)*Time.fixedDeltaTime; //Stuff??
-            //StrideProgress += (moveDir.magnitude * StrideGait) * Time.fixedDeltaTime;
-        }
-        if(StrideProgress > StrideInterval) //Step Should Occur
-        {
-            StrideProgress -= StrideInterval; //leave only overProgress
-            if(characterController.isGrounded)
+            //Handle Landing
+            if (!wasGrounded && characterController.isGrounded) //Landed
             {
-                PlayFootStepAudio();
+                moveDir.y = -.01f;
+                audioSource.PlayOneShot(LandSound); //Play Landing Sound
+            }
+            wasGrounded = characterController.isGrounded; //Track Previous State
+
+            if(drawPath)
+            {
+                List<Vector3> path;
+                if(GameController.self.currentFloor.aStar(.15f, transform.position, dest, out path))
+                {
+                    GameController.self.lr.numPositions = path.ToArray().Length;
+                    GameController.self.lr.SetPositions(path.ToArray());
+                }
+                else { Debug.Log("No Path"); }
+            }
+
+            if(Input.GetKeyDown("e") && ActiveInteractible != null)
+            {
+                ActiveInteractible.OnInteract.Invoke();
+                ActiveInteractible = null;
             }
         }
     }
-
-    private void setMode(bool mode)
+    void FixedUpdate()
     {
-        fpv = mode;
-        if(fpv)
+        if(!GameController.self.paused)
         {
-            FirstPerson.rect = screenBounds; FirstPerson.depth = -1;
-            HUD.worldCamera = FirstPerson;
-            Overhead.rect = miniMapBounds; Overhead.depth = 0;
+            updateStamina();
+            updateTransform();
+            ActiveInteractible = getClosestInteractableInRange();
+            if(ActiveInteractible != null)
+            {
+                InteractableContext.text = "Press Select to " + ActiveInteractible.Context;
+            }
+            else
+            {
+                InteractableContext.text = "";
+            }
+            PlayFootStepAudio();
         }
-        else
-        {
-            Overhead.rect = screenBounds; Overhead.depth = -1;
-            HUD.worldCamera = Overhead;
-            FirstPerson.rect = miniMapBounds; FirstPerson.depth = 0;
-        }
     }
-    private void PlayJumpingAudio()
+    private Quaternion ClampRotationAroundXAxis(Quaternion q)
     {
-        audioSource.clip = JumpSound;
-        audioSource.Play();
-        
-    }
-    private void PlayLandingAudio()
-    {
-        audioSource.clip = LandSound;
-        audioSource.Play();
-    }
-    private void PlayFootStepAudio()
-    {
-        int n = Random.Range(1, StepSounds.Length); //Pick Random(not most recent)
-        audioSource.clip = StepSounds[n];
-        audioSource.PlayOneShot(audioSource.clip);
-        // update most recent
-        StepSounds[n] = StepSounds[0];
-        StepSounds[0] = audioSource.clip;
-    }
-    
-    Quaternion ClampRotationAroundXAxis(Quaternion q)
-    {
-        q.x = Mathf.Clamp(q.x/q.w, MinimumX, MaximumX);
+        //Clamp(MinX,MaxX); {Min/MaxX} = Mathf.Tan(.5f*Mathf.Deg2Rad*{Min/Max Degrees});
+        q.x = Mathf.Clamp(q.x / q.w, -1, 1);
         q.y /= q.w;
         q.z /= q.w;
         q.w = 1.0f;
         return q;
     }
-    private void CursorLock(bool val)
+
+    private void updateStamina()
     {
-        if (val)
+        //Handle Running/Stamina
+        if (isRunning) { stamina -= Time.fixedDeltaTime; } //Depleat stamina over time running
+        else { stamina += Time.fixedDeltaTime; } //Replenish stamina over time not running
+    }
+
+    private void updateTransform()
+    {
+        //Handle Movement
+        Vector3 desiredMove = Vector3.zero;
+        Vector2 input = new Vector2(Input.GetAxis(HORIZONTAL_AXIS), Input.GetAxis(VERTICAL_AXIS)).normalized;
+        if (FirstPersonView)//First Person Controls
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Rotate to Look in Direction
+            Body.localRotation *= Quaternion.AngleAxis(Input.GetAxis(HORIZONTAL_VIEW_AXIS), Vector3.up);//Rotate Body(left right)
+            Head.localRotation = ClampRotationAroundXAxis(Head.localRotation * Quaternion.AngleAxis(Input.GetAxis(VERTICAL_VIEW_AXIS), Vector3.left));//Rotate Head(up down) Bounded
+
+            //Move relative to rotation
+            desiredMove = (Body.forward * input.y + Body.right * input.x) * CurrentSpeed;
         }
-        else
+        else //Top Down Controls
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (AbsoluteMovementInput)//Rotate to Look at Point
+            {
+                //Look at Mouse
+                Vector3 Look = Input.mousePosition; Look.z = Overhead.transform.position.y;
+                Look = Overhead.ScreenToWorldPoint(Look); Look.x -= Body.position.x; Look.z -= Body.position.z;
+                Body.localRotation = Quaternion.LookRotation(Look, Body.up);
+            }
+            else //Rotate to Look in Direction
+            {
+                Vector3 Look = new Vector3(Input.GetAxis(HORIZONTAL_VIEW_AXIS), 0, Input.GetAxis(VERTICAL_VIEW_AXIS));
+                if (Look != Vector3.zero) { Body.localRotation = Quaternion.LookRotation(Look.normalized, Body.up); }
+            }
+
+            //Move absolutely
+            desiredMove = (Vector3.forward * input.y + Vector3.right * input.x) * CurrentSpeed;
         }
+        moveDir.x = desiredMove.x; moveDir.z = desiredMove.z;
+
+        if (!characterController.isGrounded)
+        {
+            moveDir += 0.5f * Physics.gravity * Time.fixedDeltaTime; //Manually Applied Gravity
+        }
+        else if (wantsToJump)
+        {
+            wantsToJump = false;
+            moveDir.y = JumpSpeed; //Apply Jump Movement
+            //Play Jump Sound
+            audioSource.PlayOneShot(JumpSound);
+        }
+        characterController.Move(moveDir * Time.fixedDeltaTime);
+    }
+
+    private Interactable getClosestInteractableInRange()
+    {
+        Collider[] withinRange = Physics.OverlapSphere(transform.position, InteractRadius, INTERACTABLE_MASK, QueryTriggerInteraction.Ignore);
+        Collider closest = null; float minDist = Mathf.Infinity;
+        foreach (Collider c in withinRange)
+        {
+            float dist = (c.transform.position - transform.position).sqrMagnitude;
+            if (dist < minDist)
+            {
+                closest = c; minDist = dist;
+            }
+        }
+
+        if (closest != null)
+        {
+            return closest.GetComponent<Interactable>();
+        }
+        return null;
+    }
+
+    //Placeholders
+    private void PlayFootStepAudio()
+    {
+        //Update StrideProgress Accourdingly
+        //Detect if footstep should occur
+        /*if (characterController.isGrounded)
+        {
+            int n = Random.Range(1, StepSounds.Length); //Pick Random(not most recent)
+            audioSource.PlayOneShot(StepSounds[n]);
+            // update most recent
+            audioSource.clip = StepSounds[n];
+            StepSounds[n] = StepSounds[0];
+            StepSounds[0] = audioSource.clip;
+        }*/
+    }
+    public void attack()
+    {
+        if(melee) //Melee Attack, Cone of effectiveness, limited range
+        {
+            Debug.DrawRay(transform.position, Quaternion.Euler(0, -30, 0) * Body.forward);
+            Debug.DrawRay(transform.position, Quaternion.Euler(0, 30, 0) * Body.forward);
+        }
+        else if(FirstPersonView) //Range Attack, First Person Shooter
+        {
+            Instantiate(Projectile, Body.position, FirstPerson.transform.rotation).GetComponent<Rigidbody>().velocity = FirstPerson.transform.forward * 10;
+            Debug.DrawRay(Body.position, FirstPerson.transform.forward);
+        }
+        else //Range Attack, Top Down
+        {
+            Instantiate(Projectile, Body.position, Body.rotation).GetComponent<Rigidbody>().velocity = Body.forward * 10;
+            Debug.DrawRay(Body.position, Body.forward);
+        }
+    }
+    public void applyDamage(float dmg)
+    {
+        health -= dmg;
+        if(health <= 0)
+        {
+            kill();
+        }
+    }
+    public void kill()
+    {
+        Debug.Log("Killed");
     }
 }

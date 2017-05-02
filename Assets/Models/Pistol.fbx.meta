@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 31417ca55ecf7894ab9bd7edfc475ae7
+timeCreated: 1492897648
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Barrel
+    100002: Barrel1
+    100004: BarrelAssembly
+    100006: Body
+    100008: Grip
+    100010: GuardLower
+    100012: GuardLower1
+    100014: Heal
+    100016: LowerBarrel
+    100018: //RootNode
+    100020: SiteForward
+    100022: SiteRear
+    100024: Sites
+    100026: Thing
+    100028: Trigger
+    100030: TriggerAssembly
+    100032: UpperBarrel
+    400000: Barrel
+    400002: Barrel1
+    400004: BarrelAssembly
+    400006: Body
+    400008: Grip
+    400010: GuardLower
+    400012: GuardLower1
+    400014: Heal
+    400016: LowerBarrel
+    400018: //RootNode
+    400020: SiteForward
+    400022: SiteRear
+    400024: Sites
+    400026: Thing
+    400028: Trigger
+    400030: TriggerAssembly
+    400032: UpperBarrel
+    2300000: Barrel
+    2300002: Barrel1
+    2300004: Body
+    2300006: Grip
+    2300008: GuardLower
+    2300010: GuardLower1
+    2300012: Heal
+    2300014: LowerBarrel
+    2300016: SiteForward
+    2300018: SiteRear
+    2300020: Thing
+    2300022: Trigger
+    2300024: UpperBarrel
+    3300000: Barrel
+    3300002: Barrel1
+    3300004: Body
+    3300006: Grip
+    3300008: GuardLower
+    3300010: GuardLower1
+    3300012: Heal
+    3300014: LowerBarrel
+    3300016: SiteForward
+    3300018: SiteRear
+    3300020: Thing
+    3300022: Trigger
+    3300024: UpperBarrel
+    4300000: Grip
+    4300002: Trigger
+    4300004: GuardLower
+    4300006: GuardLower1
+    4300008: Body
+    4300010: Heal
+    4300012: Thing
+    4300014: UpperBarrel
+    4300016: LowerBarrel
+    4300018: Barrel
+    4300020: Barrel1
+    4300022: SiteRear
+    4300024: SiteForward
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1c64766d8c4dd5d46a6128e7297c2b9c
+timeCreated: 1489274701
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - SLIME: {instanceID: 0}
+  - GRUNT: {instanceID: 0}
+  - MINION: {instanceID: 0}
+  - BOSS: {instanceID: 0}
+  - CHEST: {instanceID: 0}
+  - DOOR: {instanceID: 0}
+  - LIGHT: {instanceID: 0}
+  - START: {instanceID: 0}
+  - END: {instanceID: 0}
+  - TILE: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
