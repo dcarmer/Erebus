@@ -19,6 +19,7 @@ public class LoadingScreen : MonoBehaviour
     }
     public void LoadLevel(int index)
     {
+        if(index >= SceneManager.sceneCountInBuildSettings) { Debug.Log("No More Levels"); index = 0; }
         gameObject.SetActive(true);
         StartCoroutine(LoadingProcess(index));
     }
@@ -26,6 +27,11 @@ public class LoadingScreen : MonoBehaviour
     {
         yield return new WaitForEndOfFrame(); //Give a frame to render screen
         SceneManager.LoadScene(index);
+        if(index == 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         gameObject.SetActive(false);
     }
 

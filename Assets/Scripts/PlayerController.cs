@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour //TODO - ADD Mesh/Collider/AudioSy
                 List<Vector3> path;
                 if(GameController.self.currentFloor.aStar(.15f, transform.position, dest, out path))
                 {
-                    GameController.self.lr.numPositions = path.ToArray().Length;
+                    GameController.self.lr.positionCount = path.ToArray().Length;
                     GameController.self.lr.SetPositions(path.ToArray());
                 }
                 else { Debug.Log("No Path"); }

@@ -13,6 +13,8 @@ public class Follow : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
 
+    private float health = 3;
+
 
     void Start () 
     {
@@ -21,7 +23,15 @@ public class Follow : MonoBehaviour
 
         timer = wanderTimer;
     }
-
+    public void applyDamage(float dmg)
+    {
+        health -= dmg;
+        if(health <= 0)
+        {
+            Debug.Log(name+" has been killed");
+            Destroy(gameObject);
+        }
+    }
     void Update () 
     {
         anim.SetFloat("Speed", agent.velocity.magnitude / agent.speed);

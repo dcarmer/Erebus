@@ -161,6 +161,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23656871637917488
 MeshRenderer:
@@ -192,6 +193,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33908014793034850
 MeshFilter:
@@ -206,7 +208,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824098311958876}
-  m_Mesh: {fileID: 4315032, guid: cd27cd5ef24858448a1b91112614a830, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 2849ac36bde3a954794337c2edd36af3, type: 2}
 --- !u!108 &108520281945048964
 Light:
   m_ObjectHideFlags: 1
@@ -214,7 +216,7 @@ Light:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723220917237200}
   m_Enabled: 1
-  serializedVersion: 7
+  serializedVersion: 8
   m_Type: 3
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
@@ -239,5 +241,7 @@ Light:
   m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 2}
   m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
