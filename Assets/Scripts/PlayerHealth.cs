@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float MAX_HEALTH = 10;
     [SerializeField] private Image HealthBar = null;
     [SerializeField] private GameObject DeathScreen = null;
+
+
+
     private bool dead = false;
 
     private void Awake()
@@ -43,6 +46,12 @@ public class PlayerHealth : MonoBehaviour
             HealthBar.fillAmount = 0;
             triggerDeath();
         }
+    }
+    public void replenishHealth(float amt)
+    {
+        if(dead) { return; }
+
+        HealthBar.fillAmount += amt / MAX_HEALTH;
     }
     public void triggerDeath()
     {

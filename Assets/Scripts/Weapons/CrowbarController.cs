@@ -31,9 +31,14 @@ public class CrowbarController : MonoBehaviour
         {
             Debug.Log("Has RB");
             Follow enemy = other.attachedRigidbody.gameObject.GetComponent<Follow>();
+            Destrucatble destruct = other.attachedRigidbody.gameObject.GetComponent<Destrucatble>();
             if (enemy != null)
             {
                 enemy.applyDamage(1);
+            }
+            if (destruct != null)
+            {
+                destruct.applyDamage(1);
             }
             other.attachedRigidbody.AddForce(1000*transform.parent.parent.forward);
         }

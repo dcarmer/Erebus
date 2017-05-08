@@ -1,0 +1,450 @@
+fileFormatVersion: 2
+guid: bb62f737d7953064fb50d60c00504044
+timeCreated: 1494122338
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: AbdomenAssembly
+    100004: BigEyes
+    100006: BigLeft
+    100008: BigRight
+    100010: Eyes
+    100012: Fore
+    100014: Fore 1
+    100016: Fore 2
+    100018: Fore 3
+    100020: Fore 4
+    100022: Fore 5
+    100024: Front
+    100026: Front 1
+    100028: Head
+    100030: HeadAssembly
+    100032: HoverWing
+    100034: //RootNode
+    100036: joint2
+    100038: joint4
+    100040: joint6
+    100042: joint8
+    100044: LeftWings
+    100046: LegLeft1
+    100048: LegLeft11
+    100050: LegLeft12
+    100052: LegLeft13
+    100054: LegLeft14
+    100056: LegLeft2
+    100058: LegLeft3
+    100060: LegLeft30
+    100062: LegLeft31
+    100064: LegLeft32
+    100066: LegLeft34
+    100068: LegLeft35
+    100070: LegLeft36
+    100072: LegLeft37
+    100074: LegLeft38
+    100076: LegLeft39
+    100078: LegLeft4
+    100080: LegLeft40
+    100082: LegLeft41
+    100084: LegLeft42
+    100086: LegLeft43
+    100088: LegLeft45
+    100090: LegLeft46
+    100092: LegLeft47
+    100094: LegLeft48
+    100096: LegLeft5
+    100098: LegLeft6
+    100100: LegLeft7
+    100102: LegLeft8
+    100104: LegLeft9
+    100106: LegLeftBackjoint1
+    100108: LegLeftBackjoint2
+    100110: LegLeftBackjoint3
+    100112: LegLeftFrontJoint1
+    100114: LegLeftFrontjoint2
+    100116: LegLeftFrontjoint3
+    100118: LegLeftMiddlejoint1
+    100120: LegLeftMiddlejoint2
+    100122: LegLeftMiddlejoint3
+    100124: LegRightBackjoint1
+    100126: LegRightBackjoint2
+    100128: LegRightBackjoint3
+    100130: LegRightFrontjoint1
+    100132: LegRightFrontjoint2
+    100134: LegRightFrontjoint3
+    100136: LegRightMiddlejoint1
+    100138: LegRightMiddlejoint2
+    100140: LegRightMiddlejoint3
+    100142: Legs1
+    100144: MandibleLeft
+    100146: MandibleLeftikHandle
+    100148: MandibleLeftjoint1
+    100150: MandibleLeftjoint2
+    100152: MandibleRight
+    100154: MandibleRightikHandle
+    100156: MandibleRightjoint1
+    100158: MandibleRightjoint2
+    100160: Mouth
+    100162: pCylinder1
+    100164: pCylinder2
+    100166: pSphere1
+    100168: pSphere2
+    100170: Rear
+    100172: Rear 1
+    100174: RightWings
+    100176: SmallLeft
+    100178: SmallRight
+    100180: Stinger
+    100182: Tail
+    100184: TailAssembly
+    100186: Thorax
+    100188: transform1
+    100190: transform2
+    100192: transform3
+    100194: transform4
+    100196: Upper
+    100198: Upper 1
+    100200: Upper 2
+    100202: Upper 3
+    100204: Upper 4
+    100206: Upper 5
+    100208: WingJoints
+    100210: WingLeftFrontikHandle
+    100212: WingLeftFrontjoint
+    100214: WingLeftRearikHandle
+    100216: WingLeftRearjoint
+    100218: WingRightFrontikHandle
+    100220: WingRightFrontjoint
+    100222: WingRightReadikHandle
+    100224: WingRightRearjoint
+    100226: WingTransforms
+    400000: Abdomen
+    400002: AbdomenAssembly
+    400004: BigEyes
+    400006: BigLeft
+    400008: BigRight
+    400010: Eyes
+    400012: Fore
+    400014: Fore 1
+    400016: Fore 2
+    400018: Fore 3
+    400020: Fore 4
+    400022: Fore 5
+    400024: Front
+    400026: Front 1
+    400028: Head
+    400030: HeadAssembly
+    400032: HoverWing
+    400034: //RootNode
+    400036: joint2
+    400038: joint4
+    400040: joint6
+    400042: joint8
+    400044: LeftWings
+    400046: LegLeft1
+    400048: LegLeft11
+    400050: LegLeft12
+    400052: LegLeft13
+    400054: LegLeft14
+    400056: LegLeft2
+    400058: LegLeft3
+    400060: LegLeft30
+    400062: LegLeft31
+    400064: LegLeft32
+    400066: LegLeft34
+    400068: LegLeft35
+    400070: LegLeft36
+    400072: LegLeft37
+    400074: LegLeft38
+    400076: LegLeft39
+    400078: LegLeft4
+    400080: LegLeft40
+    400082: LegLeft41
+    400084: LegLeft42
+    400086: LegLeft43
+    400088: LegLeft45
+    400090: LegLeft46
+    400092: LegLeft47
+    400094: LegLeft48
+    400096: LegLeft5
+    400098: LegLeft6
+    400100: LegLeft7
+    400102: LegLeft8
+    400104: LegLeft9
+    400106: LegLeftBackjoint1
+    400108: LegLeftBackjoint2
+    400110: LegLeftBackjoint3
+    400112: LegLeftFrontJoint1
+    400114: LegLeftFrontjoint2
+    400116: LegLeftFrontjoint3
+    400118: LegLeftMiddlejoint1
+    400120: LegLeftMiddlejoint2
+    400122: LegLeftMiddlejoint3
+    400124: LegRightBackjoint1
+    400126: LegRightBackjoint2
+    400128: LegRightBackjoint3
+    400130: LegRightFrontjoint1
+    400132: LegRightFrontjoint2
+    400134: LegRightFrontjoint3
+    400136: LegRightMiddlejoint1
+    400138: LegRightMiddlejoint2
+    400140: LegRightMiddlejoint3
+    400142: Legs1
+    400144: MandibleLeft
+    400146: MandibleLeftikHandle
+    400148: MandibleLeftjoint1
+    400150: MandibleLeftjoint2
+    400152: MandibleRight
+    400154: MandibleRightikHandle
+    400156: MandibleRightjoint1
+    400158: MandibleRightjoint2
+    400160: Mouth
+    400162: pCylinder1
+    400164: pCylinder2
+    400166: pSphere1
+    400168: pSphere2
+    400170: Rear
+    400172: Rear 1
+    400174: RightWings
+    400176: SmallLeft
+    400178: SmallRight
+    400180: Stinger
+    400182: Tail
+    400184: TailAssembly
+    400186: Thorax
+    400188: transform1
+    400190: transform2
+    400192: transform3
+    400194: transform4
+    400196: Upper
+    400198: Upper 1
+    400200: Upper 2
+    400202: Upper 3
+    400204: Upper 4
+    400206: Upper 5
+    400208: WingJoints
+    400210: WingLeftFrontikHandle
+    400212: WingLeftFrontjoint
+    400214: WingLeftRearikHandle
+    400216: WingLeftRearjoint
+    400218: WingRightFrontikHandle
+    400220: WingRightFrontjoint
+    400222: WingRightReadikHandle
+    400224: WingRightRearjoint
+    400226: WingTransforms
+    2300000: Abdomen
+    2300002: BigLeft
+    2300004: BigRight
+    2300006: Head
+    2300008: LegLeft1
+    2300010: LegLeft11
+    2300012: LegLeft12
+    2300014: LegLeft13
+    2300016: LegLeft14
+    2300018: LegLeft2
+    2300020: LegLeft3
+    2300022: LegLeft30
+    2300024: LegLeft31
+    2300026: LegLeft32
+    2300028: LegLeft34
+    2300030: LegLeft35
+    2300032: LegLeft36
+    2300034: LegLeft37
+    2300036: LegLeft38
+    2300038: LegLeft39
+    2300040: LegLeft4
+    2300042: LegLeft40
+    2300044: LegLeft41
+    2300046: LegLeft42
+    2300048: LegLeft43
+    2300050: LegLeft45
+    2300052: LegLeft46
+    2300054: LegLeft47
+    2300056: LegLeft48
+    2300058: LegLeft5
+    2300060: LegLeft6
+    2300062: LegLeft7
+    2300064: LegLeft8
+    2300066: LegLeft9
+    2300068: pCylinder1
+    2300070: pCylinder2
+    2300072: SmallLeft
+    2300074: SmallRight
+    2300076: Stinger
+    2300078: Tail
+    2300080: Thorax
+    2300082: Upper
+    2300084: Upper 1
+    2300086: Upper 3
+    2300088: Upper 4
+    3300000: Abdomen
+    3300002: BigLeft
+    3300004: BigRight
+    3300006: Head
+    3300008: LegLeft1
+    3300010: LegLeft11
+    3300012: LegLeft12
+    3300014: LegLeft13
+    3300016: LegLeft14
+    3300018: LegLeft2
+    3300020: LegLeft3
+    3300022: LegLeft30
+    3300024: LegLeft31
+    3300026: LegLeft32
+    3300028: LegLeft34
+    3300030: LegLeft35
+    3300032: LegLeft36
+    3300034: LegLeft37
+    3300036: LegLeft38
+    3300038: LegLeft39
+    3300040: LegLeft4
+    3300042: LegLeft40
+    3300044: LegLeft41
+    3300046: LegLeft42
+    3300048: LegLeft43
+    3300050: LegLeft45
+    3300052: LegLeft46
+    3300054: LegLeft47
+    3300056: LegLeft48
+    3300058: LegLeft5
+    3300060: LegLeft6
+    3300062: LegLeft7
+    3300064: LegLeft8
+    3300066: LegLeft9
+    3300068: pCylinder1
+    3300070: pCylinder2
+    3300072: SmallLeft
+    3300074: SmallRight
+    3300076: Stinger
+    3300078: Tail
+    3300080: Thorax
+    3300082: Upper
+    3300084: Upper 1
+    3300086: Upper 3
+    3300088: Upper 4
+    4300000: SmallLeft
+    4300002: SmallRight
+    4300004: BigLeft
+    4300006: BigRight
+    4300008: pCylinder2
+    4300010: LegLeft31
+    4300012: pCylinder1
+    4300014: LegLeft30
+    4300016: Head
+    4300018: Stinger
+    4300020: Tail
+    4300022: Thorax
+    4300024: Abdomen
+    4300026: LegLeft11
+    4300028: LegLeft12
+    4300030: LegLeft13
+    4300032: LegLeft14
+    4300034: Upper
+    4300036: LegLeft6
+    4300038: LegLeft7
+    4300040: LegLeft32
+    4300042: LegLeft5
+    4300044: LegLeft8
+    4300046: LegLeft9
+    4300048: LegLeft1
+    4300050: LegLeft2
+    4300052: LegLeft3
+    4300054: LegLeft4
+    4300056: Upper
+    4300058: LegLeft34
+    4300060: LegLeft35
+    4300062: LegLeft36
+    4300064: LegLeft37
+    4300066: Upper
+    4300068: LegLeft43
+    4300070: LegLeft40
+    4300072: LegLeft39
+    4300074: LegLeft38
+    4300076: LegLeft41
+    4300078: LegLeft42
+    4300080: LegLeft45
+    4300082: LegLeft46
+    4300084: LegLeft47
+    4300086: LegLeft48
+    4300088: Upper
+    4300090: Rear
+    4300092: Front
+    4300094: Rear
+    4300096: Front
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Front
+    13700002: Front 1
+    13700004: Rear
+    13700006: Rear 1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 1
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

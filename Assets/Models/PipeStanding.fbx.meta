@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 061873cbe9de4094bafc727fdf54a563
+timeCreated: 1494151665
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Elbow
+    100002: Elbow1
+    100004: ElbowCollar
+    100006: ElbowPipe
+    100008: FloorCollar
+    100010: FloorCollar 1
+    100012: pCube1
+    100014: pCube2
+    100016: pCube3
+    100018: Pipe
+    100020: PipeCore
+    100022: PipeCore 1
+    100024: //RootNode
+    100026: RoofCollar
+    100028: transform1
+    100030: transform2
+    100032: transform3
+    100034: transform4
+    100036: Transforms
+    100038: WallCollar
+    400000: Elbow
+    400002: Elbow1
+    400004: ElbowCollar
+    400006: ElbowPipe
+    400008: FloorCollar
+    400010: FloorCollar 1
+    400012: pCube1
+    400014: pCube2
+    400016: pCube3
+    400018: Pipe
+    400020: PipeCore
+    400022: PipeCore 1
+    400024: //RootNode
+    400026: RoofCollar
+    400028: transform1
+    400030: transform2
+    400032: transform3
+    400034: transform4
+    400036: Transforms
+    400038: WallCollar
+    2300000: Elbow1
+    2300002: ElbowCollar
+    2300004: FloorCollar
+    2300006: FloorCollar 1
+    2300008: PipeCore
+    2300010: PipeCore 1
+    2300012: RoofCollar
+    2300014: WallCollar
+    3300000: Elbow1
+    3300002: ElbowCollar
+    3300004: FloorCollar
+    3300006: FloorCollar 1
+    3300008: PipeCore
+    3300010: PipeCore 1
+    3300012: RoofCollar
+    3300014: WallCollar
+    4300000: FloorCollar
+    4300002: PipeCore
+    4300004: Elbow1
+    4300006: WallCollar
+    4300008: ElbowCollar
+    4300010: RoofCollar
+    4300012: FloorCollar
+    4300014: PipeCore
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

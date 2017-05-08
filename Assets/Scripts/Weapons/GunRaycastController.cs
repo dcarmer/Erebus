@@ -1,15 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunRaycastController : MonoBehaviour 
 {
+    [SerializeField] private int MagSize = 10;
+    [SerializeField] private GameObject AmmoDisplay = null;
+    [SerializeField] private Text ReserveAmmo = null;
+    [SerializeField] private Text CurrentAmmo = null;
+    private int CurrentAmmoCount, ReserveAmmoCount;
+
     public LineRenderer lr;
     public LineRenderer laserSight;
+    public Image crosshairs;
     public Light l;
     public ParticleSystem ps;
     public float FadeTime = 1;
     public float MaxRange = 20;
+
+
+    private void Start()
+    {
+        CurrentAmmoCount = MagSize;
+        ReserveAmmoCount = MagSize;
+        CurrentAmmo.text = CurrentAmmoCount.ToString();
+        ReserveAmmo.text = ReserveAmmoCount.ToString();
+    }
+
+
     IEnumerator MuzzleFlash()
     {
         l.gameObject.SetActive(true);
@@ -26,9 +45,14 @@ public class GunRaycastController : MonoBehaviour
             if(hitInfo.rigidbody != null)
             {
                 Follow enemy = hitInfo.rigidbody.gameObject.GetComponent<Follow>();
+                Destrucatble destruct = hitInfo.rigidbody.gameObject.GetComponent<Destrucatble>();
                 if (enemy != null)
                 {
                     enemy.applyDamage(1);
+                }
+                if(destruct != null)
+                {
+                    destruct.applyDamage(1);
                 }
                 Debug.Log("Bullet Force");
                 hitInfo.collider.attachedRigidbody.AddForceAtPosition(10 * dir, hitInfo.point, ForceMode.Impulse);
@@ -61,17 +85,52 @@ public class GunRaycastController : MonoBehaviour
         if(Input.GetKeyDown("f"))
         {
             laserSight.gameObject.SetActive(!laserSight.gameObject.activeInHierarchy);
+            crosshairs.gameObject.SetActive(!crosshairs.gameObject.activeInHierarchy);
         }
         if(Input.GetButtonDown("Fire1"))
         {
             FireGun();
         }
+        if(Input.GetKeyDown("r"))
+        {
+            Reload();
+        }
     }
     public void FireGun()
     {
-        StopAllCoroutines();
-        StartCoroutine(MuzzleFlash());
-        StartCoroutine(Fade());
+        if(CurrentAmmoCount > 0)
+        {
+            CurrentAmmoCount--;
+            CurrentAmmo.text = CurrentAmmoCount.ToString();
+            StopAllCoroutines();
+            StartCoroutine(MuzzleFlash());
+            StartCoroutine(Fade());
+        }
+        
+    }
+    public void Reload()
+    {
+        if(ReserveAmmoCount > 0)
+        {
+            int reload = Mathf.Min(ReserveAmmoCount, MagSize);
+            ReserveAmmoCount -= reload;
+            CurrentAmmoCount = reload;
+            CurrentAmmo.text = CurrentAmmoCount.ToString();
+            ReserveAmmo.text = ReserveAmmoCount.ToString();
+        }
+    }
+    private void OnEnable()
+    {
+        AmmoDisplay.SetActive(true);
+    }
+    private void OnDisable()
+    {
+        AmmoDisplay.SetActive(false);
+    }
+    public void addAmmo(int num)
+    {
+        ReserveAmmoCount += num;
+        ReserveAmmo.text = ReserveAmmoCount.ToString();
     }
     /*
     IEnumerator Emit()

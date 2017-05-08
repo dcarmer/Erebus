@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23361951770376762}
   - component: {fileID: 65156953923123266}
   - component: {fileID: 54437286581325216}
+  - component: {fileID: 114253357750723788}
   m_Layer: 0
   m_Name: CardboardBox
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1221264414667956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,10 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 86b8179a3dbfd8249bbfb025cb13eec5, type: 2}
-  - {fileID: 2100000, guid: db57de593a5726b4d969812bcf804bce, type: 2}
-  - {fileID: 2100000, guid: a08bf02d84af12a45bafdfb554608922, type: 2}
-  - {fileID: 2100000, guid: 8f96c63ac773f684aaa4e3858ddf8f52, type: 2}
+  - {fileID: 2100000, guid: 58323a9493f56244d829a55ee31c96d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +82,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221264414667956}
-  m_Mesh: {fileID: 4300000, guid: 8d6e50bb230e7cf4d82448b064fa6dd7, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 47f9133914375ee4abde8b5ab8c1a667, type: 3}
 --- !u!54 &54437286581325216
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -110,5 +108,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 100}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114253357750723788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1221264414667956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb45bf65887edb478a98220e9cab822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 2
+  AmmoBox: {fileID: 1266206957364794, guid: f829c70c8f2ce724f9f0ef9902b07132, type: 2}
+  dropRate: 0.3

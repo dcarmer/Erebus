@@ -5,24 +5,53 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private CanvasGroup PausePanel;
     [SerializeField] private CanvasGroup OptionsPanel;
 
-    public static PauseMenuController SELF { get { return self; } }
-    private static PauseMenuController self = null;
+    private CanvasGroup PauseMenu = null;
+
     private void Awake()
     {
-        if (self != null)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
-        self = this;
-        DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(false);
+        PauseMenu = GetComponent<CanvasGroup>();
     }
+    public void togglePause()
+    {
+        if(PauseMenu == null) { PauseMenu = GetComponent<CanvasGroup>(); }
 
-
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            PauseMenu.alpha = 0;
+            PauseMenu.interactable = false;
+            PauseMenu.blocksRaycasts = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            PauseMenu.alpha = 1;
+            PauseMenu.interactable = true;
+            PauseMenu.blocksRaycasts = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
+        PauseMenu.alpha = 1;
+        PauseMenu.interactable = true;
+        PauseMenu.blocksRaycasts = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
+        PauseMenu.alpha = 0;
+        PauseMenu.interactable = false;
+        PauseMenu.blocksRaycasts = false;
+    }
     public void ResumeGame()
     {
-        //Unpause Here
+        //gameObject.SetActive(false);
+        enabled = false;
     }
     public void ReturnToTitleMenu()
     {

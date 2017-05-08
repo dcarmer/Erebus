@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NewLabDoor
+  m_Controller: {fileID: 9100000, guid: d27ca85f33093424ebbb222be45a7110, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7bb3f634d78fe7b46947f6eaf7a9df05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9b194db3e150b1940b7d7e322f21f6e0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b088b438d91a48749b9d15c6fb1136f2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 058dbf00563069d438801ecf07ad247a, type: 2}
