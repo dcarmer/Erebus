@@ -324,7 +324,7 @@ ModelImporter:
     4300080: LegLeft31
     4300082: pCylinder1
     4300084: LegLeft30
-    7400000: Take 001
+    7400000: BeetleWalking
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -348,7 +348,225 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BeetleWalking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Beetle
+        weight: 1
+      - path: Beetle/Carapace
+        weight: 1
+      - path: Beetle/Eyes
+        weight: 1
+      - path: Beetle/Eyes/BigLeft
+        weight: 1
+      - path: Beetle/Eyes/BigRight
+        weight: 1
+      - path: Beetle/Eyes/SmallLeft
+        weight: 1
+      - path: Beetle/Eyes/SmallRight
+        weight: 1
+      - path: Beetle/Horn
+        weight: 1
+      - path: Beetle/LegsLeft
+        weight: 1
+      - path: Beetle/LegsLeft/Back
+        weight: 1
+      - path: Beetle/LegsLeft/Front
+        weight: 1
+      - path: Beetle/LegsLeft/Middle
+        weight: 1
+      - path: Beetle/LegsRight
+        weight: 1
+      - path: Beetle/LegsRight/Back 1
+        weight: 1
+      - path: Beetle/LegsRight/Front 1
+        weight: 1
+      - path: Beetle/LegsRight/Middle 1
+        weight: 1
+      - path: Beetle/Mouth
+        weight: 1
+      - path: Beetle/Shell
+        weight: 1
+      - path: LegLeftBackikHandle
+        weight: 1
+      - path: LegLeftBackjoint1
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/Fore
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/Fore/LegLeft11
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/Fore/LegLeft12
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/Fore/LegLeft13
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/Fore/LegLeft14
+        weight: 1
+      - path: LegLeftBackjoint1/LegLeftBackjoint2/LegLeftBackjoint3
+        weight: 1
+      - path: LegLeftBackjoint1/Upper
+        weight: 1
+      - path: LegLeftFrontJoint1
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/Fore 1
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/Fore 1/LegLeft1
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/Fore 1/LegLeft2
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/Fore 1/LegLeft3
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/Fore 1/LegLeft4
+        weight: 1
+      - path: LegLeftFrontJoint1/LegLeftFrontjoint2/LegLeftFrontjoint3
+        weight: 1
+      - path: LegLeftFrontJoint1/Upper 1
+        weight: 1
+      - path: LegLeftMiddleikHandle
+        weight: 1
+      - path: LegLeftMiddlejoint1
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2/Fore 2
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2/Fore 2/LegLeft6
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2/Fore 2/LegLeft7
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2/Fore 2/LegLeft32
+        weight: 1
+      - path: LegLeftMiddlejoint1/LegLeftMiddlejoint2/LegLeftMiddlejoint3
+        weight: 1
+      - path: LegLeftMiddlejoint1/Upper 2
+        weight: 1
+      - path: LegLeftMiddlejoint1/Upper 2/LegLeft5
+        weight: 1
+      - path: LegLeftMiddlejoint1/Upper 2/LegLeft8
+        weight: 1
+      - path: LegLeftMiddlejoint1/Upper 2/LegLeft9
+        weight: 1
+      - path: LegRightBackikHandle
+        weight: 1
+      - path: LegRightBackjoint1
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/Fore 3
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/Fore 3/LegLeft45
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/Fore 3/LegLeft46
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/Fore 3/LegLeft47
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/Fore 3/LegLeft48
+        weight: 1
+      - path: LegRightBackjoint1/LegRightBackjoint2/LegRightBackjoint3
+        weight: 1
+      - path: LegRightBackjoint1/Upper 3
+        weight: 1
+      - path: LegRightFontikHandle
+        weight: 1
+      - path: LegRightFrontjoint1
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/Fore 4
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/Fore 4/LegLeft34
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/Fore 4/LegLeft35
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/Fore 4/LegLeft36
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/Fore 4/LegLeft37
+        weight: 1
+      - path: LegRightFrontjoint1/LegRightFrontjoint2/LegRightFrontjoint3
+        weight: 1
+      - path: LegRightFrontjoint1/Upper 4
+        weight: 1
+      - path: LegRightMiddleikHandle
+        weight: 1
+      - path: LegRightMiddlejoint1
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2/Fore 5
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2/Fore 5/LegLeft39
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2/Fore 5/LegLeft40
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2/Fore 5/LegLeft43
+        weight: 1
+      - path: LegRightMiddlejoint1/LegRightMiddlejoint2/LegRightMiddlejoint3
+        weight: 1
+      - path: LegRightMiddlejoint1/Upper 5
+        weight: 1
+      - path: LegRightMiddlejoint1/Upper 5/LegLeft38
+        weight: 1
+      - path: LegRightMiddlejoint1/Upper 5/LegLeft41
+        weight: 1
+      - path: LegRightMiddlejoint1/Upper 5/LegLeft42
+        weight: 1
+      - path: LehLeftFrontikHandle
+        weight: 1
+      - path: MandibleLeftikHandle
+        weight: 1
+      - path: MandibleLeftjoint1
+        weight: 1
+      - path: MandibleLeftjoint1/MandibleLeft
+        weight: 1
+      - path: MandibleLeftjoint1/MandibleLeft/LegLeft30
+        weight: 1
+      - path: MandibleLeftjoint1/MandibleLeft/pCylinder1
+        weight: 1
+      - path: MandibleLeftjoint1/MandibleLeftjoint2
+        weight: 1
+      - path: MandibleRightikHandle
+        weight: 1
+      - path: MandibleRightjoint1
+        weight: 1
+      - path: MandibleRightjoint1/MandibleRight
+        weight: 1
+      - path: MandibleRightjoint1/MandibleRight/LegLeft31
+        weight: 1
+      - path: MandibleRightjoint1/MandibleRight/pCylinder2
+        weight: 1
+      - path: MandibleRightjoint1/MandibleRightjoint2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

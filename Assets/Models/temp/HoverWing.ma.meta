@@ -1,0 +1,674 @@
+fileFormatVersion: 2
+guid: 7b52723140f0fb74692acf34f01a113b
+timeCreated: 1494323305
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: AbdomenAssembly
+    100004: BigEyes
+    100006: BigLeft
+    100008: BigRight
+    100010: Eyes
+    100012: Fore
+    100014: Fore1
+    100016: Fore2
+    100018: Fore3
+    100020: Fore4
+    100022: Fore5
+    100024: Front
+    100026: Front 1
+    100028: Head
+    100030: HeadAssembly
+    100032: HoverWing
+    100034: //RootNode
+    100036: joint10
+    100038: joint11
+    100040: joint12
+    100042: joint2
+    100044: joint4
+    100046: joint6
+    100048: joint8
+    100050: LeftWings
+    100052: LegLeft1
+    100054: LegLeft11
+    100056: LegLeft12
+    100058: LegLeft13
+    100060: LegLeft14
+    100062: LegLeft2
+    100064: LegLeft3
+    100066: LegLeft30
+    100068: LegLeft31
+    100070: LegLeft32
+    100072: LegLeft34
+    100074: LegLeft35
+    100076: LegLeft36
+    100078: LegLeft37
+    100080: LegLeft38
+    100082: LegLeft39
+    100084: LegLeft4
+    100086: LegLeft40
+    100088: LegLeft41
+    100090: LegLeft42
+    100092: LegLeft43
+    100094: LegLeft45
+    100096: LegLeft46
+    100098: LegLeft47
+    100100: LegLeft48
+    100102: LegLeft5
+    100104: LegLeft6
+    100106: LegLeft7
+    100108: LegLeft8
+    100110: LegLeft9
+    100112: LegLeftBackjoint1
+    100114: LegLeftFrontJoint1
+    100116: LegLeftMiddlejoint1
+    100118: LegRightBackjoint1
+    100120: LegRightFrontjoint1
+    100122: LegRightMiddlejoint1
+    100124: Legs1
+    100126: MandibleLeft
+    100128: MandibleLeftikHandle
+    100130: MandibleLeftjoint1
+    100132: MandibleLeftjoint2
+    100134: MandibleRight
+    100136: MandibleRightikHandle
+    100138: MandibleRightjoint1
+    100140: MandibleRightjoint2
+    100142: Mouth
+    100144: pCylinder1
+    100146: pCylinder2
+    100148: pSphere1
+    100150: pSphere2
+    100152: Rear
+    100154: Rear 1
+    100156: RightWings
+    100158: SmallLeft
+    100160: SmallRight
+    100162: Stinger
+    100164: Tail
+    100166: TailAssembly
+    100168: TailikHandle1
+    100170: TailJoints
+    100172: Thorax
+    100174: transform1
+    100176: transform2
+    100178: transform3
+    100180: transform4
+    100182: Upper
+    100184: Upper 1
+    100186: Upper 2
+    100188: Upper 3
+    100190: Upper 4
+    100192: Upper 5
+    100194: WingJoints
+    100196: WingLeftFrontikHandle
+    100198: WingLeftFrontjoint
+    100200: WingLeftRearikHandle
+    100202: WingLeftRearjoint
+    100204: WingRightFrontikHandle
+    100206: WingRightFrontjoint
+    100208: WingRightReadikHandle
+    100210: WingRightRearjoint
+    100212: WingTransforms
+    400000: Abdomen
+    400002: AbdomenAssembly
+    400004: BigEyes
+    400006: BigLeft
+    400008: BigRight
+    400010: Eyes
+    400012: Fore
+    400014: Fore1
+    400016: Fore2
+    400018: Fore3
+    400020: Fore4
+    400022: Fore5
+    400024: Front
+    400026: Front 1
+    400028: Head
+    400030: HeadAssembly
+    400032: HoverWing
+    400034: //RootNode
+    400036: joint10
+    400038: joint11
+    400040: joint12
+    400042: joint2
+    400044: joint4
+    400046: joint6
+    400048: joint8
+    400050: LeftWings
+    400052: LegLeft1
+    400054: LegLeft11
+    400056: LegLeft12
+    400058: LegLeft13
+    400060: LegLeft14
+    400062: LegLeft2
+    400064: LegLeft3
+    400066: LegLeft30
+    400068: LegLeft31
+    400070: LegLeft32
+    400072: LegLeft34
+    400074: LegLeft35
+    400076: LegLeft36
+    400078: LegLeft37
+    400080: LegLeft38
+    400082: LegLeft39
+    400084: LegLeft4
+    400086: LegLeft40
+    400088: LegLeft41
+    400090: LegLeft42
+    400092: LegLeft43
+    400094: LegLeft45
+    400096: LegLeft46
+    400098: LegLeft47
+    400100: LegLeft48
+    400102: LegLeft5
+    400104: LegLeft6
+    400106: LegLeft7
+    400108: LegLeft8
+    400110: LegLeft9
+    400112: LegLeftBackjoint1
+    400114: LegLeftFrontJoint1
+    400116: LegLeftMiddlejoint1
+    400118: LegRightBackjoint1
+    400120: LegRightFrontjoint1
+    400122: LegRightMiddlejoint1
+    400124: Legs1
+    400126: MandibleLeft
+    400128: MandibleLeftikHandle
+    400130: MandibleLeftjoint1
+    400132: MandibleLeftjoint2
+    400134: MandibleRight
+    400136: MandibleRightikHandle
+    400138: MandibleRightjoint1
+    400140: MandibleRightjoint2
+    400142: Mouth
+    400144: pCylinder1
+    400146: pCylinder2
+    400148: pSphere1
+    400150: pSphere2
+    400152: Rear
+    400154: Rear 1
+    400156: RightWings
+    400158: SmallLeft
+    400160: SmallRight
+    400162: Stinger
+    400164: Tail
+    400166: TailAssembly
+    400168: TailikHandle1
+    400170: TailJoints
+    400172: Thorax
+    400174: transform1
+    400176: transform2
+    400178: transform3
+    400180: transform4
+    400182: Upper
+    400184: Upper 1
+    400186: Upper 2
+    400188: Upper 3
+    400190: Upper 4
+    400192: Upper 5
+    400194: WingJoints
+    400196: WingLeftFrontikHandle
+    400198: WingLeftFrontjoint
+    400200: WingLeftRearikHandle
+    400202: WingLeftRearjoint
+    400204: WingRightFrontikHandle
+    400206: WingRightFrontjoint
+    400208: WingRightReadikHandle
+    400210: WingRightRearjoint
+    400212: WingTransforms
+    2300000: BigLeft
+    2300002: BigRight
+    2300004: Head
+    2300006: LegLeft1
+    2300008: LegLeft11
+    2300010: LegLeft12
+    2300012: LegLeft13
+    2300014: LegLeft14
+    2300016: LegLeft2
+    2300018: LegLeft3
+    2300020: LegLeft30
+    2300022: LegLeft31
+    2300024: LegLeft32
+    2300026: LegLeft34
+    2300028: LegLeft35
+    2300030: LegLeft36
+    2300032: LegLeft37
+    2300034: LegLeft38
+    2300036: LegLeft39
+    2300038: LegLeft4
+    2300040: LegLeft40
+    2300042: LegLeft41
+    2300044: LegLeft42
+    2300046: LegLeft43
+    2300048: LegLeft45
+    2300050: LegLeft46
+    2300052: LegLeft47
+    2300054: LegLeft48
+    2300056: LegLeft5
+    2300058: LegLeft6
+    2300060: LegLeft7
+    2300062: LegLeft8
+    2300064: LegLeft9
+    2300066: pCylinder1
+    2300068: pCylinder2
+    2300070: SmallLeft
+    2300072: SmallRight
+    2300074: Upper
+    2300076: Upper 1
+    2300078: Upper 3
+    2300080: Upper 4
+    3300000: BigLeft
+    3300002: BigRight
+    3300004: Head
+    3300006: LegLeft1
+    3300008: LegLeft11
+    3300010: LegLeft12
+    3300012: LegLeft13
+    3300014: LegLeft14
+    3300016: LegLeft2
+    3300018: LegLeft3
+    3300020: LegLeft30
+    3300022: LegLeft31
+    3300024: LegLeft32
+    3300026: LegLeft34
+    3300028: LegLeft35
+    3300030: LegLeft36
+    3300032: LegLeft37
+    3300034: LegLeft38
+    3300036: LegLeft39
+    3300038: LegLeft4
+    3300040: LegLeft40
+    3300042: LegLeft41
+    3300044: LegLeft42
+    3300046: LegLeft43
+    3300048: LegLeft45
+    3300050: LegLeft46
+    3300052: LegLeft47
+    3300054: LegLeft48
+    3300056: LegLeft5
+    3300058: LegLeft6
+    3300060: LegLeft7
+    3300062: LegLeft8
+    3300064: LegLeft9
+    3300066: pCylinder1
+    3300068: pCylinder2
+    3300070: SmallLeft
+    3300072: SmallRight
+    3300074: Upper
+    3300076: Upper 1
+    3300078: Upper 3
+    3300080: Upper 4
+    4300000: SmallLeft
+    4300002: SmallRight
+    4300004: BigLeft
+    4300006: BigRight
+    4300008: pCylinder2
+    4300010: LegLeft31
+    4300012: pCylinder1
+    4300014: LegLeft30
+    4300016: Head
+    4300018: Stinger
+    4300020: Tail
+    4300022: Thorax
+    4300024: Abdomen
+    4300026: Upper
+    4300028: LegLeft5
+    4300030: LegLeft8
+    4300032: LegLeft9
+    4300034: Upper
+    4300036: Upper
+    4300038: LegLeft38
+    4300040: LegLeft41
+    4300042: LegLeft42
+    4300044: Upper
+    4300046: LegLeft11
+    4300048: LegLeft12
+    4300050: LegLeft13
+    4300052: LegLeft14
+    4300054: LegLeft6
+    4300056: LegLeft7
+    4300058: LegLeft32
+    4300060: LegLeft1
+    4300062: LegLeft2
+    4300064: LegLeft3
+    4300066: LegLeft4
+    4300068: LegLeft34
+    4300070: LegLeft35
+    4300072: LegLeft36
+    4300074: LegLeft37
+    4300076: LegLeft43
+    4300078: LegLeft40
+    4300080: LegLeft39
+    4300082: LegLeft45
+    4300084: LegLeft46
+    4300086: LegLeft47
+    4300088: LegLeft48
+    4300090: Rear
+    4300092: Front
+    4300094: Rear
+    4300096: Front
+    7400000: HoverWingAttack
+    9500000: //RootNode
+    13700000: Abdomen
+    13700002: Front
+    13700004: Front 1
+    13700006: Rear
+    13700008: Rear 1
+    13700010: Stinger
+    13700012: Tail
+    13700014: Thorax
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 1
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: HoverWingAttack
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: HoverWing
+        weight: 1
+      - path: HoverWing/AbdomenAssembly
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Abdomen
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore/LegLeft11
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore/LegLeft12
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore/LegLeft13
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore/LegLeft14
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore1/LegLeft6
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore1/LegLeft7
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore1/LegLeft32
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore2
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore2/LegLeft1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore2/LegLeft2
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore2/LegLeft3
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore2/LegLeft4
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore3
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore3/LegLeft34
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore3/LegLeft35
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore3/LegLeft36
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore3/LegLeft37
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore4
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore4/LegLeft39
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore4/LegLeft40
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore4/LegLeft43
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore5
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore5/LegLeft45
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore5/LegLeft46
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore5/LegLeft47
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/Fore5/LegLeft48
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftBackjoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftBackjoint1/Upper
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftFrontJoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftFrontJoint1/Upper 1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftMiddlejoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftMiddlejoint1/Upper 2
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftMiddlejoint1/Upper 2/LegLeft5
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftMiddlejoint1/Upper 2/LegLeft8
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegLeftMiddlejoint1/Upper 2/LegLeft9
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightBackjoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightBackjoint1/Upper 3
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightFrontjoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightFrontjoint1/Upper 4
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightMiddlejoint1
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightMiddlejoint1/Upper 5
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightMiddlejoint1/Upper 5/LegLeft38
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightMiddlejoint1/Upper 5/LegLeft41
+        weight: 1
+      - path: HoverWing/AbdomenAssembly/Legs1/LegRightMiddlejoint1/Upper 5/LegLeft42
+        weight: 1
+      - path: HoverWing/HeadAssembly
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes/BigEyes
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes/BigEyes/BigLeft
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes/BigEyes/BigRight
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes/SmallLeft
+        weight: 1
+      - path: HoverWing/HeadAssembly/Eyes/SmallRight
+        weight: 1
+      - path: HoverWing/HeadAssembly/Head
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftikHandle
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftjoint1
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftjoint1/MandibleLeft
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftjoint1/MandibleLeft/LegLeft30
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftjoint1/MandibleLeft/pCylinder1
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleLeftjoint1/MandibleLeftjoint2
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightikHandle
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightjoint1
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightjoint1/MandibleRight
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightjoint1/MandibleRight/LegLeft31
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightjoint1/MandibleRight/pCylinder2
+        weight: 1
+      - path: HoverWing/HeadAssembly/Mouth/MandibleRightjoint1/MandibleRightjoint2
+        weight: 1
+      - path: HoverWing/LeftWings
+        weight: 1
+      - path: HoverWing/LeftWings/Front
+        weight: 1
+      - path: HoverWing/LeftWings/Rear
+        weight: 1
+      - path: HoverWing/RightWings
+        weight: 1
+      - path: HoverWing/RightWings/Front 1
+        weight: 1
+      - path: HoverWing/RightWings/Rear 1
+        weight: 1
+      - path: HoverWing/TailAssembly
+        weight: 1
+      - path: HoverWing/TailAssembly/Stinger
+        weight: 1
+      - path: HoverWing/TailAssembly/Tail
+        weight: 1
+      - path: HoverWing/TailAssembly/Thorax
+        weight: 1
+      - path: HoverWing/WingJoints
+        weight: 1
+      - path: HoverWing/WingJoints/WingLeftFrontjoint
+        weight: 1
+      - path: HoverWing/WingJoints/WingLeftFrontjoint/joint8
+        weight: 1
+      - path: HoverWing/WingJoints/WingLeftRearjoint
+        weight: 1
+      - path: HoverWing/WingJoints/WingLeftRearjoint/joint6
+        weight: 1
+      - path: HoverWing/WingJoints/WingRightFrontjoint
+        weight: 1
+      - path: HoverWing/WingJoints/WingRightFrontjoint/joint2
+        weight: 1
+      - path: HoverWing/WingJoints/WingRightRearjoint
+        weight: 1
+      - path: HoverWing/WingJoints/WingRightRearjoint/joint4
+        weight: 1
+      - path: TailikHandle1
+        weight: 1
+      - path: TailJoints
+        weight: 1
+      - path: TailJoints/joint10
+        weight: 1
+      - path: TailJoints/joint10/joint11
+        weight: 1
+      - path: TailJoints/joint10/joint11/joint12
+        weight: 1
+      - path: WingLeftFrontikHandle
+        weight: 1
+      - path: WingLeftRearikHandle
+        weight: 1
+      - path: WingRightFrontikHandle
+        weight: 1
+      - path: WingRightReadikHandle
+        weight: 1
+      - path: WingTransforms
+        weight: 1
+      - path: WingTransforms/pSphere1
+        weight: 1
+      - path: WingTransforms/pSphere1/transform1
+        weight: 1
+      - path: WingTransforms/pSphere1/transform4
+        weight: 1
+      - path: WingTransforms/pSphere2
+        weight: 1
+      - path: WingTransforms/pSphere2/transform2
+        weight: 1
+      - path: WingTransforms/pSphere2/transform3
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

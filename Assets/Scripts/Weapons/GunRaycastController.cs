@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GunRaycastController : MonoBehaviour 
 {
+    [SerializeField] private AudioClip[] gunShotSounds; 
+    [SerializeField] private AudioClip reloadSound;
     [SerializeField] private int MagSize = 10;
     [SerializeField] private GameObject AmmoDisplay = null;
     [SerializeField] private Text ReserveAmmo = null;
@@ -19,9 +21,11 @@ public class GunRaycastController : MonoBehaviour
     public float FadeTime = 1;
     public float MaxRange = 20;
 
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         CurrentAmmoCount = MagSize;
         ReserveAmmoCount = MagSize;
         CurrentAmmo.text = CurrentAmmoCount.ToString();
@@ -105,8 +109,19 @@ public class GunRaycastController : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(MuzzleFlash());
             StartCoroutine(Fade());
+            PlayGunFireAudio();
         }
         
+    }
+    private void PlayGunFireAudio()
+    {
+        // excluding sound at index 0
+        int n = Random.Range(1, gunShotSounds.Length);
+        audioSource.clip = gunShotSounds[n];
+        audioSource.PlayOneShot(audioSource.clip);
+        // move picked sound to index 0 so it's not picked next time
+        gunShotSounds[n] = gunShotSounds[0];
+        gunShotSounds[0] = audioSource.clip;
     }
     public void Reload()
     {
@@ -117,6 +132,7 @@ public class GunRaycastController : MonoBehaviour
             CurrentAmmoCount = reload;
             CurrentAmmo.text = CurrentAmmoCount.ToString();
             ReserveAmmo.text = ReserveAmmoCount.ToString();
+            audioSource.PlayOneShot(reloadSound);
         }
     }
     private void OnEnable()

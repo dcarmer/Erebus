@@ -421,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
+  clip: {fileID: 8300000, guid: f1a06c92337581d4792ac973b09c8768, type: 3}
 --- !u!135 &135252204259593716
 SphereCollider:
   m_ObjectHideFlags: 1

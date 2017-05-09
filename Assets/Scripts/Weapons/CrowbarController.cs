@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CrowbarController : MonoBehaviour 
 {
+    [SerializeField] private AudioClip[] swingSounds;
+    private AudioSource audioSource;
+
     private Animator animator = null;
     private Collider hitbox = null;
     private bool Swinging = false;
@@ -13,6 +16,7 @@ public class CrowbarController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponentInParent<Rigidbody>();
         hitbox = GetComponent<Collider>();
+        audioSource = GetComponent<AudioSource>();
         hitbox.enabled = false;
     }
     private void Update()
@@ -48,6 +52,17 @@ public class CrowbarController : MonoBehaviour
         animator.SetTrigger("Swing");
         Swinging = true;
         hitbox.enabled = true;
+        PlaySwingSound();
+    }
+    private void PlaySwingSound()
+    {
+        // excluding sound at index 0
+        int n = Random.Range(1, swingSounds.Length);
+        audioSource.clip = swingSounds[n];
+        audioSource.PlayOneShot(audioSource.clip);
+        // move picked sound to index 0 so it's not picked next time
+        swingSounds[n] = swingSounds[0];
+        swingSounds[0] = audioSource.clip;
     }
     public void StopSwinging()
     {

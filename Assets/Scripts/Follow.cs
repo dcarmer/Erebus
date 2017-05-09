@@ -46,6 +46,7 @@ public class Follow : MonoBehaviour
     public void applyDamage(float dmg)
     {
         health -= dmg;
+        anim.SetTrigger("Flinch");
         if(health <= 0)
         {
             Debug.Log(name+" has been killed");
@@ -70,9 +71,9 @@ public class Follow : MonoBehaviour
             }
             if (distance < attackRangeSqrd && Time.time - lastAttackTime >= attackRate)
             {
+                anim.SetTrigger("Attack");
                 lastAttackTime = Time.time;
                 PlayerHealth.SELF.applyDamage(attackDamage);
-                //attack here
             }
             agent.SetDestination(target.position);
             
@@ -88,38 +89,6 @@ public class Follow : MonoBehaviour
                 }
             }
         }
-
-        /*
-
-        if(can see player)
-        {
-            if(idleing)
-            {
-                switch to aggro state
-            }
-            else already in aggro state
-        }
-        else
-        {
-            if(idleing){ continue idleing}
-            else
-            {
-                wait for path to complete and switch to idle
-            }
-        }
-
-
-        */
-        /*agent.SetDestination(target.position);
-        anim.SetFloat("Speed", agent.velocity.magnitude/agent.speed);
-        /*if(agent.pathStatus != NavMeshPathStatus.PathComplete)
-        {
-            agent.Stop();
-        }
-        else
-        {
-            agent.Resume();
-        }*/
     }
     private IEnumerator IdleState()
     {
