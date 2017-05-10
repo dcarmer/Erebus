@@ -24,10 +24,15 @@ public class Follow : MonoBehaviour
     [SerializeField] private float attackDamage = 2;
     [SerializeField] private float attackRate = 1;
 
+    [SerializeField] private AudioClip idleSound;
+    [SerializeField] private AudioClip moveSound;
+    [SerializeField] private AudioClip aggroSound;
+
 
     private Transform target;
     private NavMeshAgent agent;
     private Animator anim;
+    private AudioSource audioSource;
 
     private float lastAttackTime = 0;
     private bool aggro = false;
@@ -36,6 +41,7 @@ public class Follow : MonoBehaviour
 
     void Start () 
     {
+        audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         target = PlayerHealth.SELF.transform;
@@ -67,6 +73,12 @@ public class Follow : MonoBehaviour
             if(!aggro)
             {
                 StopAllCoroutines();
+                if(aggroSound != null)
+                {
+                    audioSource.clip = aggroSound;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
                 aggro = true;
             }
             if (distance < attackRangeSqrd && Time.time - lastAttackTime >= attackRate)
@@ -92,9 +104,21 @@ public class Follow : MonoBehaviour
     }
     private IEnumerator IdleState()
     {
-        while(true)
+        if(idleSound != null)
+        {
+            audioSource.clip = idleSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+        while (true)
         {
             yield return new WaitForSeconds(Random.Range(minWanderTime,maxWanderTime));
+            if(moveSound != null)
+            {
+                audioSource.clip = moveSound;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
             agent.SetDestination(RandomNavSphere(transform.position, wanderRadius, agent.areaMask));
         }
     }
